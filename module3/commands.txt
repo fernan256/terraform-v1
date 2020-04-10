@@ -1,0 +1,5 @@
+terraform init
+terraform validate
+terraform plan -out module3.tfplan
+terraform apply "module3.tfplan"
+terraform destroy
