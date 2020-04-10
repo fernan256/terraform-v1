@@ -1,4 +1,5 @@
 # VARIABLES
+###########################################################################
 
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
@@ -15,6 +16,7 @@ variable "subnet1_address_space" {
 }
 
 # PROVIDERS
+###########################################################################
 
 provider "aws" {
 	access_key = var.aws_access_key
@@ -23,6 +25,7 @@ provider "aws" {
 }
 
 # DATA
+###########################################################################
 
 data "aws_availability_zones" "available" {}
 
@@ -47,6 +50,7 @@ data "aws_ami" "aws-linux" {
 }
 
 # RESOURCES
+###########################################################################
 
 # NETWORKING #
 resource "aws_vpc" "vpc" {
@@ -136,6 +140,7 @@ resource "aws_instance" "nginx1" {
 }
 
 # OUTPUT
+###########################################################################
 
 output "aws_instance_public_dns" {
 	value = aws_instance.nginx1.public_dns
