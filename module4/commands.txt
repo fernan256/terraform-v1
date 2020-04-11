@@ -17,5 +17,5 @@ terraform apply "m4.tfplan"
 terraform destroy
 
 #Set the files back
-ren modulefour-start.tf.rename modulefour-start.tf
-ren modulefour-update.tf modulefour-update.tf.rename
+mv modulefour-start.tf.rename modulefour-start.tf
+mv modulefour-update.tf modulefour-update.tf.rename

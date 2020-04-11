@@ -66,7 +66,7 @@ resource "aws_subnet" "subnet1" {
 	cidr_block							= var.subnet1_address_space
 	vpc_id									= aws_vpc.vpc.id
 	map_public_ip_on_launch = "true"
-	availability_zone				= data.aws_availability_zones.available.name[0]
+	availability_zone				= data.aws_availability_zones.available.names[0]
 }
 
 # ROUTING #
@@ -81,7 +81,7 @@ resource "aws_route_table" "rtb" {
 
 resource "aws_route_table_association" "rta-subnet1" {
 	subnet_id				= aws_subnet.subnet1.id
-	route_ttable_id	= aws_route_table.rtb.id
+	route_table_id	= aws_route_table.rtb.id
 }
 
 # SECURITY GROUPS #
@@ -120,13 +120,13 @@ resource "aws_instance" "nginx1" {
 	ami											= data.aws_ami.aws-linux.id
 	instance_type						= "t2.micro"
 	subnet_id								= aws_subnet.subnet1.id
-	vpc_security_groups_ids	=	[aws_security_group.nginx-sg.id]
+	vpc_security_group_ids	=	[aws_security_group.nginx-sg.id]
 	key_name								= var.key_name
 
 	connection {
 		type				= "ssh"
-		host				= self.public_ip
-		user				= "ec2_user"
+		host				= self.public_dns
+		user				= "ec2-user"
 		private_key	=	file(var.private_key_path)
 	}
 
