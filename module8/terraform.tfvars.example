@@ -1,0 +1,51 @@
+
+
+aws_access_key = ""
+
+aws_secret_key = ""
+
+key_name = "name_of_existing_key_pair"
+
+private_key_path = "private_key_path\private_key_file.pem"
+
+bucket_name_prefix = "globo"
+
+environment_tag = "dev"
+
+billing_code_tag = "ACCTPROTECNO8474"
+
+arm_subscription_id = "AZURE_SUBSCRIPTION_ID"
+
+arm_principal = "AZURE_SERVICE_PRINCIPAL_ID"
+
+arm_password = "AZURE_SERVICE_PRINCIPAL_PASSWORD"
+
+tenant_id = "AZURE_SERVICE_PRINCIPAL_TENANT_ID"
+
+dns_zone_name =  "yourzonename.com"
+
+dns_resource_group = "AZURE_RESOURCE_GROUP_NAME_FOR_DNS_ZONE"
+
+network_address_space = {
+    Development = "10.0.0.0/16"
+    UAT = "10.1.0.0/16"
+    Production = "10.2.0.0/16"
+}
+
+instance_size = {
+    Development = "t2.micro"
+    UAT = "t2.micro"
+    Production = "t2.medium"
+}
+
+subnet_count = {
+    Development = 2
+    UAT = 2
+    Production = 2
+}
+
+instance_count = {
+    Development = 2
+    UAT = 2
+    Produccion = 2
+}
